@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do List</title>
+  <style>
+    /* Add styling to the dark-themed To-Do List */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #222;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 400px;
+      background-color: #333;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .task-input {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      background-color: #444;
+      border: none;
+      color: #fff;
+      transition: background-color 0.3s;
+    }
+
+    .task-input:focus {
+      outline: none;
+      background-color: #555;
+    }
+
+    .add-button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .add-button:hover {
+      background-color: #45a049;
+    }
+
+    .task-list {
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .task-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+      opacity: 0;
+      animation: fadeIn 0.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .task-item input[type="checkbox"] {
+      margin-right: 10px;
+    }
+
+    .task-item .task-name {
+      flex-grow: 1;
+      color: #fff;
+    }
+
+    .task-item .task-name.completed {
+      text-decoration: line-through;
+      color: #888;
+    }
+
+    .delete-button {
+      background-color: #f44336;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      margin-left: 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .delete-button:hover {
+      background-color: #d32f2f;
+    }
+    /* Add some spacing between the To-Do List and the form field */
+    .task-list {
+      margin-bottom: 20px;
+    }
+
+    /* Make the task text visible in dark-themed To-Do List */
+    .task-item .task-name {
+      flex-grow: 1;
+      color: #fff;
+    }
+
+    /* Add animation for task addition */
+    .task-item {
+      opacity: 0;
+      animation: fadeIn 0.5s forwards;
+    }
+        @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes shrink {
+      from {
+        opacity: 1;
+        transform: scale(1);
+      }
+      to {
+        opacity: 0;
+        transform: scale(0);
+      }
+    }
+
+    .task-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+      opacity: 0;
+      animation: fadeIn 0.5s forwards;
+      border-radius: 20px; /* Change the border radius to make the task item circular */
+      position: relative;
+    }
+
+    .task-item.complimentary {
+      background-color: #ff9800; /* Change the background color to a complimentary color (e.g., orange) */
+    }
+
+    .task-item.completed {
+      animation: shrink 0.5s forwards;
+    }
+
+    .task-item.completed .task-name {
+      text-decoration: line-through;
+      color: #888;
+    }
+
+    .task-item.completed .delete-button {
+      display: none;
+    }
+
+    .delete-button {
+      background-color: #f44336;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      margin-left: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+    }
+
+    .delete-button:hover {
+      background-color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>To-Do List</h1>
+    <ul id="task-list" class="task-list"></ul>
+    <input type="text" id="task-input" class="task-input" placeholder="Enter a task">
+    <button id="add-button" class="add-button">Add Task</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
